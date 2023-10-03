@@ -6,17 +6,14 @@ interface ComponentProps {
   title: string;
 }
 
-class Component<T extends ComponentProps> {
+class Component<T> {
   constructor(public props: T) {}
 }
 
-class PageProps implements ComponentProps {
-  title: string = "";
-}
-
-class Page extends Component<PageProps> {
-  pageInfo() {
+class Page extends Component<ComponentProps> {
+  pageInfo(): void {
     console.log(this.props.title);
   }
 }
+
 export {};
